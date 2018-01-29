@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>Document</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+	</head>
+
+	<body>
+		<div class="wrap">
+			<img src="img/bg.jpg" />
+			<canvas id="myCanvas" width="600" height="600"></canvas>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var wrap = document.querySelector(".wrap"),
+				wrapW = wrap.offsetWidth,
+				wrapH = wrap.offsetHeight;
+			var canvas = document.getElementById("myCanvas");
+			canvas.width = wrapW + 100;
+			canvas.height = wrapH + 100;
+			
+
+			var ctx = canvas.getContext("2d");
+			ctx.fillStyle = "#0074bf";
+			ctx.fillRect(50,50,wrapW,wrapH);
+			var imgObj = new Image();
+			imgObj.src = "http://newairtek-haier.oss-cn-beijing.aliyuncs.com/gxdq/bg33.jpg";
+			imgObj.onload = function(){
+				ctx.drawImage(this,50,125,1200,400);
+			}
+			
+			
+			function Qiu(){
+				this.color = "rgba(0,0,0,1)";
+				this.r = randomFn(3,20);
+				this.y = randomFn(50,wrapH+50);
+				this.co = 1;
+			}
+			Qiu.prototype.move = function(_x){
+				this.x = _x + randomFn(-20,50);
+			}
+			Qiu.prototype.draw = function(){
+				this.co -= .05;
+				ctx.fillStyle = "rgba(3,108,176,"+ this.co +")";
+				ctx.beginPath();
+				if(this.x>=100+wrapW){
+					
+				}else{
+					ctx.arc(this.x -= randomFn(2,5),this.y -= randomFn(-15,15),this.r,0,2*Math.PI);
+				}
+				ctx.closePath();
+				ctx.fill();//画实心圆
+			}
+			
+			var clearArr = [];
+			var qiuArr = [];
+			var num = 0;
+			var stepClear;
+			var claerR = 50;
+			function main() {
+				num++;
+				
+				if(claerR>=canvas.width+1000){
+					claerR=canvas.width+1000;
+				}else{
+					claerR+=2;
+				}
+				if(num % 1 == 0) {
+					ctx.clearRect(0, 0, canvas.width, canvas.height);
+					ctx.fillStyle = "#0074bf";
+					ctx.fillRect(50,50,wrapW,wrapH);
+					
+					ctx.drawImage(imgObj,50,50,1644,550);
+					
+					ctx.clearRect(0, 0, claerR, 50 + wrapH);
+					
+					for(var i = 0; i<=50; i++){
+						var qiuObj = new Qiu();
+						qiuArr.push(qiuObj);
+						qiuObj.move(claerR);
+					}
+					if(claerR>70){
+						for(var j = 0; j<qiuArr.length;j++){
+							qiuArr[j].draw();
+						}
+					}
+					if(qiuArr.length>=140){
+						qiuArr.splice(0,49);
+					}
+				}
+				if(num > 1000) {
+					num = 0;
+				}
+				requestAnimationFrame(main);
+			}
+			main();
+			
+			
+			
+			function clearArc(x,y,radius){//圆心(x,y)，半径radius  
+	
+	            var calcWidth=radius-stepClear;
+	            var calcHeight=Math.sqrt(radius*radius-calcWidth*calcWidth);  
+	              
+	            var posX=x-calcWidth;
+	            var posY=y-calcHeight;  
+	              
+	            var widthX=2*calcWidth;  
+	            var heightY=2*calcHeight;  
+	              
+	            if(stepClear<=radius){  
+	                ctx.clearRect(posX,posY,widthX,heightY);  
+	                stepClear+=1;
+	                clearArc(x,y,radius);
+	            }
+	        }
+		});
+
+		function randomFn(min, max) {
+
+			return parseInt(Math.random() * (max - min)) + min;
+		}
+		
+	</script>
+
+</html>

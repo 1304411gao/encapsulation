@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  background-color: #111; }
+
+.wrap {
+  width: 1200px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%); }
+  .wrap > img {
+    display: block;
+    width: 100%; }
+
+#myCanvas {
+  position: absolute;
+  left: -50px;
+  top: -50px; }
+
+/*# sourceMappingURL=main.css.map */

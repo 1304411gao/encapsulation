@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        canvas{
+            border: 1px solid pink;
+            margin: 100px auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+</body>
+<script src="js/loading.js"></script>
+<script>
+    window.onload = function(){
+        loadFn({
+            loadImg: {
+                i1: "img/img1.jpg",
+                i2: "img/img2.jpg",
+                i3: "img/img3.jpg",
+            },
+            complete:init
+        });
+        
+        function init(_imgs) {
+
+            console.log(_imgs);
+            const canvas = document.getElementById("myCanvas");
+            canvas.width = 1920 / 3;
+            canvas.height = 1080 / 3;
+            const ctx = canvas.getContext("2d");
+
+            //定义常用变量
+            let cw = canvas.width, //canvas宽度
+                ch = canvas.height, //canvas高度
+                s = 10, //将高度分割的份数
+                img1 = _imgs.i1, //要绘制的图片对象
+                imgNum = 3; //图片合成数
+
+
+            for(let i = 0; i < s; i++){
+                ctx.drawImage(_imgs.i1, 0, _imgs.i1.height/s*i, _imgs.i1.width, _imgs.i1.height/s, 0, ch/s*i, cw, ch/s);
+            }
+
+            function test(_index){
+                console.log("test执行");
+                let time = 0;
+                let w = -50;
+                let tiemr = setInterval(function(){
+                    time ++;
+                    let lai = 100; //来回
+                    let sp = 0;
+                    if(parseInt(time / lai % 2) == 1){
+                        sp = -1;
+                    }else{
+                        sp = 1;
+                    }
+                    w += sp;
+                    console.log(w);
+                    let nowImg = _imgs.i1;
+                    ctx.clearRect(0,0,cw,ch);
+                    for(let i = 0; i < s; i++){
+
+                        ctx.drawImage(nowImg, w, nowImg.height/s*i, nowImg.width, nowImg.height/s, 0, ch/s*i, cw, ch/s);
+                    }
+
+
+                },5);
+
+
+            }
+
+            document.onclick = function(){
+
+                test(randomFn(imgNum-1, 0));
+
+                console.log(parseInt(3 / 30));
+            }
+        }
+    }
+
+    //随机数函数
+    function randomFn(max,min){
+        return parseInt(Math.random()*(max - min + 1)+min);
+    }
+</script>
+</html>
