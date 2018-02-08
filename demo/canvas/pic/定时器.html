@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+        let num = 0;
+        function continuous() {
+            num++;
+            console.log(num);
+            if(num % 5 == 0) {
+
+            }
+            if(num > 1000) {
+                num = 0;
+            }
+
+            requestAnimationFrame(continuous);
+        }
+        continuous();
+
+        var num = 0
+        setInterval(function(){
+            num++
+            console.log(num);
+        },100)
+</script>
+</html>
