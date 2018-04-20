@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>聚合生态 共赢未来</title>
+    <meta content="telephone=no" name="format-detection">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <!-- uc强 制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- qq强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <script>
+        //根据浏览器宽度给font-size赋值，rem。
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    window.clientWidth = docEl.clientWidth;
+                    if (!window.clientWidth) return;
+                    docEl.style.fontSize = 20 * (window.clientWidth / 320) + 'px';
+                    window.base = 20 * ( window.clientWidth / 320);
+                };
+            // Abort if browser does not support addEventListener
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+        //搞定辣鸡微信调整字体大小造成的错乱
+        (function () {
+            if (typeof WeixinJSBridge == "object" && typeof WeixinJSBridge.invoke == "function") {
+                handleFontSize();
+            } else {
+                if (document.addEventListener) {
+                    document.addEventListener("WeixinJSBridgeReady", handleFontSize, false);
+                } else if (document.attachEvent) {
+                    document.attachEvent("WeixinJSBridgeReady", handleFontSize);
+                    document.attachEvent("onWeixinJSBridgeReady", handleFontSize);
+                }
+            }
+
+            function handleFontSize() {
+                // 设置网页字体为默认大小
+                WeixinJSBridge.invoke('setFontSizeCallback', {
+                    'fontSize': 0
+                });
+                // 重写设置网页字体大小的事件
+                WeixinJSBridge.on('menu:setfont', function () {
+                    WeixinJSBridge.invoke('setFontSizeCallback', {
+                        'fontSize': 0
+                    });
+                });
+            }
+        })();
+    </script>
+    <link rel="stylesheet" type="text/css" href="css/animate.css"/>
+    <link rel="stylesheet" type="text/css" href="css/myKey.css"/>
+    <link rel="stylesheet" type="text/css" href="css/magic.css"/>
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/main.css?v=1.0"/>
+</head>
+<body>
+<div id="wrap">
+    <div id="loading">
+        <img src="img/1354828.gif" alt=""/>
+    </div>
+
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!-- 封面 -->
+            <div id="page1" class="swiper-slide">
+                <!--标题1-->
+                <img class="page1-title1 animated" data-a="boingInUp" src="img/page1-title1.png" alt=""/>
+                <!--标题2-->
+                <img class="page1-title2 animated" data-a="boingInUp" src="img/page1-title2.png" alt=""/>
+                <!-- 右三角-->
+                <img class="page1-2 animated" data-a="spaceInRight" src="img/page1-2.png" alt=""/>
+                <!--左三角 下-->
+                <img class="page1-3 animated" data-a="spaceInLeft" src="img/page1-3.png" alt=""/>
+                <!--左三角 上-->
+                <img class="page1-1 animated" data-a="spaceInLeft" src="img/page1-1.png" alt=""/>
+                <!-- 中部信息 -->
+                <img class="page1-4 animated" data-a="spaceInRight" src="img/page1-4.png" alt=""/>
+                <!-- 底部信息 -->
+                <div class="page1-foot">
+                    <p class="p1 animated" data-a="puffIn">夏津县人民政府</p>
+                    <p class="p2 animated" data-a="puffIn">2017年12月</p>
+                </div>
+            </div>
+            <!-- 目录 -->
+            <div id="page2" class="swiper-slide">
+                <!-- 上三角 -->
+                <img class="page2-1 animated" data-a="page2-1-m" src="img/page2-1.png" alt=""/>
+                <!-- 右三角 -->
+                <img class="page2-2 animated" data-a="page2-2-m" src="img/page2-2.png" alt=""/>
+                <!-- 目录中文字 -->
+                <img class="page2-3 animated" data-a="fadeInDown" src="img/page2-3.png" alt=""/>
+                <!-- 目录英文字 -->
+                <img class="page2-4 animated" data-a="fadeInDown" src="img/page2-4.png" alt=""/>
+
+                <!-- 目录容器-->
+                <div class="menu-box animated" data-a="fadeInRight">
+                    <ul class="box box1">
+                        <li class="animated" data-a="perspectiveDownReturn">
+                            <p>果桑大健康产业基地项目</p>
+                            <span>&gt;</span>
+                        </li>
+                        <li class="animated" data-a="perspectiveDownReturn">
+                            <p>15万吨果汁饮品精深加工项目</p>
+                            <span>&gt;</span>
+                        </li>
+                        <li class="animated" data-a="perspectiveDownReturn">
+                            <p>5万吨椹果酒研发生产项目</p>
+                            <span>&gt;</span>
+                        </li>
+                        <li class="animated" data-a="perspectiveDownReturn">
+                            <p>5万吨桑果酵素项目</p>
+                            <span>&gt;</span>
+                        </li>
+                        <li class="animated" data-a="perspectiveDownReturn">
+                            <p>6万吨椹叶茶饮项目</p>
+                            <span>&gt;</span>
+                        </li>
+                        <li class="animated" data-a="perspectiveDownReturn">
+                            <p>新丝路农庄项目</p>
+                            <span>&gt;</span>
+                        </li>
+                    </ul>
+
+                    <ul class="box box2">
+                        <li class="animated" data-a="perspectiveDownReturn">
+                            <p>10万吨休闲食品项目</p>
+                            <span>&gt;</span>
+                        </li>
+                        <li class="animated" data-a="perspectiveDownReturn">
+                            <p>日产千吨无菌天然面粉生产线项目</p>
+                            <span>&gt;</span>
+                        </li>
+                        <li class="animated" data-a="perspectiveDownReturn">
+                            <p>3000吨膳食纤维面包生产项目</p>
+                            <span>&gt;</span>
+                        </li>
+                        <li class="animated" data-a="perspectiveDownReturn">
+                            <p>3万吨棉籽深加工甘油二酯油项目</p>
+                            <span>&gt;</span>
+                        </li>
+                        <li class="animated" data-a="perspectiveDownReturn">
+                            <p>60吨休闲保健食品项目</p>
+                            <span>&gt;</span>
+                        </li>
+                        <li class="animated" data-a="perspectiveDownReturn">
+                            <p>年产8万吨薯类系列食品<br />深加工项目</p>
+                            <span>&gt;</span>
+                        </li>
+                        <li class="animated" data-a="perspectiveDownReturn">
+                            <p>年产10万吨蔬菜精深加工项目</p>
+                            <span>&gt;</span>
+                        </li>
+
+                    </ul>
+
+                    <ul class="box box3">
+                        <li class="animated" data-a="perspectiveDownReturn">
+                            <p>古桑文化特色小镇项目</p>
+                            <span>&gt;</span>
+                        </li>
+                        <li class="animated" data-a="perspectiveDownReturn">
+                            <p>左堤农业旅游综合体项目</p>
+                            <span>&gt;</span>
+                        </li>
+                        <li class="animated" data-a="perspectiveDownReturn">
+                            <p>森林游乐园项目</p>
+                            <span>&gt;</span>
+                        </li>
+                        <li class="animated" data-a="perspectiveDownReturn">
+                            <p>桑禅乡舍项目</p>
+                            <span>&gt;</span>
+                        </li>
+                        <li class="animated" data-a="perspectiveDownReturn">
+                            <p>黄河农桑文化遗产公园项目</p>
+                            <span>&gt;</span>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <!-- 菜单 -->
+                <div class="tab tab1 active animated" data-a="fadeInLeft" data-index="1"></div>
+                <div class="tab tab2 animated" data-a="fadeInLeft" data-index="2"></div>
+                <div class="tab tab3 animated" data-a="fadeInLeft" data-index="3"></div>
+            </div>
+
+            <!-- 内容 -->
+            <!--1-->
+            <div class="item swiper-slide">
+                <img class="page3-1" src="img/page3-1.png" alt=""/>
+                <img class="page3-2" src="img/page3-2.png" alt=""/>
+                <div class="content">
+                    <p class="title">果桑大健康产业基地项目</p>
+                    <div class="txt">
+                        <div>
+                            <p class="item-bg" style="text-indent: 2em">夏津桑资源丰富，植桑面积<span> 5 </span>万亩，古桑树群被列为 “全球重要农业文化遗产”。近年来，我县依托古桑资源，深入探索古树资源的多级利用、生态旅游产业开发，对桑果、桑叶等衍生产品进行综合开发，形成一个集桑产品深加工、桑文化体验、生态旅游于一体的产业链条，建设中国最大的果桑大健康产业基地。</p>
+                            <p><strong>项目规划：</strong>占地<span> 2500 </span>亩，主要建设桑产品深加工产业园、桑文化生态博览园、果桑生态旅游开发等板块。</p>
+                            <p><strong>项目进展：</strong>建设地点在县黄河故道生态旅游区、经济开发区，当前项目规划已完成。</p>
+                            <p><strong>投资收益：</strong>项目投资估算 <span>65</span> 亿元。建成后，年可实现销售收入 <span>72</span> 亿元，利税 <span>10</span> 亿元，利润 <span>7</span> 亿元。</p>
+                            <p><strong>合作方式：</strong>独资、合资、合作。</p>
+                        </div>
+                    </div>
+                    <span class="back-menu"><span>&lt;</span> 返回目录</span>
+                    <span class="page-mark"><span>1 </span>/18</span>
+                </div>
+            </div>
+
+            <!--2-->
+            <div class="item swiper-slide">
+                <img class="page3-1" src="img/page3-1.png" alt=""/>
+                <img class="page3-2" src="img/page3-2.png" alt=""/>
+                <div class="content">
+                    <p class="title">15万吨果汁饮品<br />精深加工项目</p>
+                    <div class="txt">
+                        <div>
+                            <p class="item-bg" style="text-indent: 2em">夏津林果丰富，是著名的“小杂果之乡”，年产椹果 <span>3.2</span>万吨，苹果、梨等各类杂果 <span>14.5</span> 万吨，且植桑面积逐年增加，预计到  <span>2020</span> 年，桑树种植面积可达 <span>10</span> 万亩，年产椹果 <span>6.4</span> 万吨。</p>
+                            <p><strong>项目规划：</strong>规划新上果汁饮品精深加工生产线 <span>8</span> 条，总建筑面积 <span>10</span> 万平方米，年产椹果饮品、苹果汁、梨汁等各类果汁饮品 <span>15</span> 万吨。</p>
+                            <p><strong>项目进展：</strong>建设地点在县经济开发区，当前项目规划完成，项目区已实现“九通一平”。</p>
+                            <p><strong>投资收益：</strong>项目投资估算 <span>4.2</span> 亿元。建成后，年可实现销售收入 <span>6.8</span> 亿元，利税 <span>1.1</span> 亿元，利润 <span>8000</span> 万元。</p>
+                            <p><strong>合作方式：</strong>独资、合资、合作。</p>
+                        </div>
+                    </div>
+
+                    <span class="back-menu"><span>&lt;</span> 返回目录</span>
+                    <span class="page-mark"><span>2 </span>/18</span>
+                </div>
+            </div>
+
+            <!--3-->
+            <div class="item swiper-slide">
+                <img class="page3-1" src="img/page3-1.png" alt=""/>
+                <img class="page3-2" src="img/page3-2.png" alt=""/>
+                <div class="content">
+                    <p class="title">5万吨椹果酒研发生产项目</p>
+                    <div class="txt">
+                        <div>
+                            <p class="item-bg" style="text-indent: 2em">椹果被医学界誉为“21世纪最佳保健果品”，富含活性蛋白、维生素等成分，营养价值是苹果的 <span>5-6</span> 倍，葡萄的 <span>4</span> 倍，具有提高免疫力、补血滋阴等功效，可开发椹果酒等特色保健食品。</p>
+                            <p><strong>项目规划：</strong>占地 <span>170</span> 亩，新上国内先进果酒生产线  <span>10</span> 条，年产椹果保健酒 <span>5</span> 万吨。</p>
+                            <p><strong>项目进展：</strong>建设地点在县经济开发区，当前生产技术已成熟，项目规划完成，项目区已实现“九通一平”。</p>
+                            <p><strong>投资收益：</strong>项目投资估算 <span>4.8</span> 亿元。建成后，年可实现销售收入 <span>10</span> 亿元，实现利税 <span>2</span> 亿元，其中利润 <span>1.4</span> 亿元。</p>
+                            <p><strong>合作方式：</strong>独资、合资、合作。</p>
+                        </div>
+                    </div>
+                    <span class="back-menu"><span>&lt;</span> 返回目录</span>
+                    <span class="page-mark"><span>3 </span>/18</span>
+                </div>
+            </div>
+
+            <!--4-->
+            <div class="item swiper-slide">
+                <img class="page3-1" src="img/page3-1.png" alt=""/>
+                <img class="page3-2" src="img/page3-2.png" alt=""/>
+                <div class="content">
+                    <p class="title">5万吨桑果酵素项目</p>
+                    <div class="txt">
+                        <div>
+                            <p class="item-bg" style="text-indent: 2em">椹果被医学界誉为“21世纪最佳保健果品”，富含活性蛋白、维生素、氨基酸等成分，营养是苹果的 <span>5-6</span> 倍，是葡萄的 <span>4</span> 倍，具有提高人体免疫力、补血滋阴、补肝益肾等功效，可开发椹果酵素等特色保健食品。</p>
+                            <p><strong>项目规划：</strong>项目占地 <span>150</span> 亩，新上桑果酵素加工生产线 <span>3</span> 条，年产桑果酵素 <span>5</span> 万吨，项目总建筑面积 <span>10.5</span> 万平方米，主要建设原料仓库、加工车间、包装车间、行政生活服务设施等。</p>
+                            <p><strong>项目进展：</strong>建设地点在县经济开发区，项目规划完成，项目区已实现“九通一平”，配套基础设施完善。</p>
+                            <p><strong>投资收益：</strong>项目总投资 <span>1.5</span> 亿元。建成后，年可实现销售收入 <span>2</span> 亿元，实现利税  <span>0.4</span> 亿元，其中利润 <span>0.3</span> 亿元。</p>
+                            <p><strong>合作方式：</strong>独资、合资、合作。</p>
+                        </div>
+                    </div>
+                    <span class="back-menu"><span>&lt;</span> 返回目录</span>
+                    <span class="page-mark"><span>4 </span>/18</span>
+                </div>
+            </div>
+
+            <!--5-->
+            <div class="item swiper-slide">
+                <img class="page3-1" src="img/page3-1.png" alt=""/>
+                <img class="page3-2" src="img/page3-2.png" alt=""/>
+                <div class="content">
+                    <p class="title">6万吨椹叶茶饮项目</p>
+                    <div class="txt">
+                        <div>
+                            <p class="item-bg" style="text-indent: 2em">椹叶营养丰富，被称作“天然植物营养库”，含有多种维生素、矿物质、氨基酸、芳香甙、生物碱等成分，椹叶具有袪风、清热、明目等功效，可开发椹叶茶等特色食品。</p>
+                            <p><strong>项目规划：</strong>项目占地 <span>100</span> 亩，新上椹叶茶饮加工生产线3条，项目总建筑面积 <span>6.2</span> 万平方米，主要建设气调库、原料仓库、加工车间、包装车间、研发中心及行政生活服务设施等，项目建成后，年生产能力达 <span>6</span> 万吨。</p>
+                            <p><strong>项目进展：</strong>建设地点在县经济开发区，目前项目规划已完成，项目区已实现“九通一平”，配套基础设施完善。</p>
+                            <p><strong>投资收益：</strong>项目总投资 <span>1</span> 亿元。建成后，年可实现销售收入 <span>1.5</span> 亿元，利税 <span>0.3</span> 亿元，利润 <span>0.2</span> 亿元。</p>
+                            <p><strong>合作方式：</strong>独资、合资、合作。</p>
+                        </div>
+                    </div>
+                    <span class="back-menu"><span>&lt;</span> 返回目录</span>
+                    <span class="page-mark"><span>5 </span>/18</span>
+                </div>
+            </div>
+
+            <!-- 6 -->
+            <div class="item swiper-slide">
+                <img class="page3-1" src="img/page3-1.png" alt=""/>
+                <img class="page3-2" src="img/page3-2.png" alt=""/>
+                <div class="content">
+                    <p class="title">新丝路农庄项目</p>
+                    <div class="txt">
+                        <div>
+                            <p class="item-bg" style="text-indent: 2em">新丝路有限公司依托丰富的旅游和椹果资源，运用当前的成熟技术，计划打造集研发、制造、展销、物流、文化于一体的桑产业发源地。</p>
+                            <p><strong>项目规划：</strong>占地 <span>500</span> 亩，总建筑面积  <span>5</span> 万平方米，主要建设种植基地、研发中心、产品生产、展销中心、产业平台等板块。</p>
+                            <p><strong>项目进展：</strong>建设地点在县经济开发区和黄河故道生态旅游区，目前项目规划已完成。</p>
+                            <p><strong>投资收益：</strong>项目投资估算 <span>1</span> 亿元。建成后，年可实现销售收入 <span>3000</span> 万元，利税 <span>800</span> 万元，利润 <span>600</span> 万元。</p>
+                            <p><strong>合作方式：</strong>合资、合作。</p>
+                        </div>
+                    </div>
+                    <span class="back-menu"><span>&lt;</span> 返回目录</span>
+                    <span class="page-mark"><span>6 </span>/18</span>
+                </div>
+            </div>
+
+            <!-- 7-->
+            <div class="item swiper-slide">
+                <img class="page3-1" src="img/page3-1.png" alt=""/>
+                <img class="page3-2" src="img/page3-2.png" alt=""/>
+                <div class="content">
+                    <p class="title">10万吨休闲食品项目</p>
+                    <div class="txt">
+                        <div>
+                            <p class="item-bg" style="text-indent: 2em">夏津县农业资源丰富，小麦、玉米、地瓜等农作物产量巨大。目前，拥有发达面粉、永乐食品两家全国小麦粉加工能力十强企业，年加工小麦超过 <span>220</span> 万吨。</p>
+                            <p><strong>项目规划：</strong>依托农业资源优势，规划建设年产 <span>10</span> 万吨休闲食品项目，占地 <span>100</span> 亩，总建筑面积 <span>6.8</span> 万平方米，新上休闲食品生产线 <span>5</span> 条。</p>
+                            <p><strong>项目进展：</strong>建设地点在县经济开发区，当前项目规划完成，项目区已实现“九通一平”。</p>
+                            <p><strong>投资收益：</strong>项目估算总投资 <span>2.8</span> 亿元。项目建成后，年可实现销售收入 <span>4.1</span> 亿元，利税 <span>6000</span> 万元，利润 <span>4500</span> 万元。</p>
+                            <p><strong>合作方式：</strong>独资、合资、合作。</p>
+                        </div>
+                    </div>
+                    <span class="back-menu"><span>&lt;</span> 返回目录</span>
+                    <span class="page-mark"><span>7 </span>/18</span>
+                </div>
+            </div>
+
+            <!-- 8 -->
+            <div class="item swiper-slide">
+                <img class="page3-1" src="img/page3-1.png" alt=""/>
+                <img class="page3-2" src="img/page3-2.png" alt=""/>
+                <div class="content">
+                    <p class="title">日产千吨无菌天然面粉<br />生产线项目</p>
+                    <div class="txt">
+                        <div>
+                            <p class="item-bg" style="text-indent: 2em">永乐食品有限公司是省农业产业化重点龙头企业，公司为进一步发展壮大，计划建设国际领先、无菌天然的小麦粉生产线。</p>
+                            <p><strong>项目规划：</strong>规划占地面积 <span>100</span> 亩，建筑面积 <span>5</span> 万平方米，建设规模日加工 <span>1000</span> 吨国际领先面粉生产线，主要用于生产加工无菌天然小麦粉。</p>
+                            <p><strong>项目进展：</strong>建设地点在县经济开发区，当前项目规划完成，项目区已实现“九通一平”。</p>
+                            <p><strong>投资收益：</strong>项目投资估算为 <span>2.5</span> 亿元。建成后，年可实现销售收入 <span>4.6</span> 亿元，利税 <span>7000</span> 万元，利润 <span>5000</span> 万元。</p>
+                            <p><strong>合作方式：</strong>合资、合作。</p>
+                        </div>
+                    </div>
+                    <span class="back-menu"><span>&lt;</span> 返回目录</span>
+                    <span class="page-mark"><span>8 </span>/18</span>
+                </div>
+            </div>
+
+            <!-- 9 -->
+            <div class="item swiper-slide">
+                <img class="page3-1" src="img/page3-1.png" alt=""/>
+                <img class="page3-2" src="img/page3-2.png" alt=""/>
+                <div class="content">
+                    <p class="title">3000吨膳食纤维面包生产项目</p>
+                    <div class="txt">
+                        <div>
+                            <p class="item-bg" style="text-indent: 2em">随着人们健康意识日益加强，普通面包的口感和营养价值已不能满足需要，开发更营养、简便、经济的膳食纤维面包已成大势所趋。</p>
+                            <p><strong>项目规划：</strong>建筑面积 <span>2.6</span> 万平方米，新上先进生产设备 <span>60</span> 余台（套）</p>
+                            <p><strong>项目进展：</strong>建设地点在县经济开发区，当前项目规划完成，项目区已实现“九通一平”。</p>
+                            <p><strong>投资收益：</strong>项目投资估算 <span>1.2</span> 亿元。建成达产后，年可实现销售收入 <span>3.1</span> 亿元，利税 <span>5000</span> 万元，其中利润 <span>3800</span> 万元。</p>
+                            <p><strong>合作方式：</strong>独资、合资、合作。</p>
+                        </div>
+                    </div>
+                    <span class="back-menu"><span>&lt;</span> 返回目录</span>
+                    <span class="page-mark"><span>9 </span>/18</span>
+                </div>
+            </div>
+
+            <!-- 10 -->
+            <div class="item swiper-slide">
+                <img class="page3-1" src="img/page3-1.png" alt=""/>
+                <img class="page3-2" src="img/page3-2.png" alt=""/>
+                <div class="content">
+                    <p class="title">3万吨棉籽深加工甘油<br />二酯油项目</p>
+                    <div class="txt">
+                        <div>
+                            <p class="item-bg" style="text-indent: 2em">夏津县是棉籽交易重要基地，棉籽油是我国的第五大油种，可应用到食品、工业等多个方面，是甘油二酯油的重要原料，甘油二酯油是一类多功能的添加剂。</p>
+                            <p><strong>项目规划：</strong>项目规划占地 <span>50</span> 亩，主要建设棉籽深加工甘油二脂油生产线、仓库和配套设施等，总建筑面积 <span>4</span> 万平方米，年产甘油二脂油 <span>3</span> 万吨。</p>
+                            <p><strong>项目进展：</strong>建设地点在县经济开发区，当前项目规划完成，项目区已实现“九通一平”。</p>
+                            <p><strong>投资收益：</strong>项目投资估算 <span>1.4</span> 亿元。投产后年可实现销售收入 <span>3</span> 亿元，利润 <span>4500</span> 万元。</p>
+                            <p><strong>合作方式：</strong>独资、合资、合作。</p>
+                        </div>
+                    </div>
+                    <span class="back-menu"><span>&lt;</span> 返回目录</span>
+                    <span class="page-mark"><span>10 </span>/18</span>
+                </div>
+            </div>
+
+            <!-- 11 -->
+            <div class="item swiper-slide">
+                <img class="page3-1" src="img/page3-1.png" alt=""/>
+                <img class="page3-2" src="img/page3-2.png" alt=""/>
+                <div class="content">
+                    <p class="title">60吨休闲保健食品项目</p>
+                    <div class="txt">
+                        <div>
+                            <p class="item-bg" style="text-indent: 2em">椹树全身都是宝，椹叶被称作“天然植物营养库”，含有多种维生素、矿物质、氨基酸等成分，椹叶具有袪风、清热、明目、凉血等功效，可提取多种营养成分生产休闲保健食品。</p>
+                            <p><strong>项目规划：</strong>项目占地200亩，新上休闲保健食品生产线 <span>3</span> 条，建设研发中心、生产车间、仓库、办公楼及配套设施等，总建筑面积 <span>1.5</span> 万平方米，购置研发设备 <span>35</span> 台（套），项目建成后，达到年产 <span>60</span> 吨休闲保健食品生产规模。</p>
+                            <p><strong>项目进展：</strong>建设地点在县经济开发区，当前项目规划完成，项目区已实现“九通一平”。</p>
+                            <p><strong>投资收益：</strong>总投资 <span>1.6</span> 亿元。项目建成后，年可实现销售收入 <span>2.8</span> 亿元，利税 <span>0.8</span> 亿元，利润 <span>0.7</span> 亿元。</p>
+                            <p><strong>合作方式：</strong>独资、合资、合作。</p>
+                        </div>
+                    </div>
+                    <span class="back-menu"><span>&lt;</span> 返回目录</span>
+                    <span class="page-mark"><span>11 </span>/18</span>
+                </div>
+            </div>
+
+            <!-- 17 -->
+            <div class="item swiper-slide">
+                <img class="page3-1" src="img/page3-1.png" alt=""/>
+                <img class="page3-2" src="img/page3-2.png" alt=""/>
+                <div class="content">
+                    <p class="title">年产8万吨薯类系列<br />食品深加工项目</p>
+                    <div class="txt">
+                        <div>
+                            <p class="item-bg" style="text-indent: 2em">红薯富含果胶、纤维素、维生素以及多种矿物质，产品附加值高。夏津县常年生产各类品种红薯 <span>10</span> 万吨，年交易量达 <span>25</span> 万吨。培育有陇薯9号、烟薯25等系列品种，已注册为地理标志性产品。</p>
+                            <p><strong>项目规划：</strong>项目占地 <span>100</span> 亩，新上深加工生产线 <span>5</span> 条，建设研发检测中心、加工车间、包装车间等，总建筑面积 <span>6.8</span> 万平方米。项目建成后，年产薯类系列深加工食品8万吨</p>
+                            <p><strong>项目进展：</strong>园区规划完成，项目区已实现“九通一平”，配套基础设施完善。</p>
+                            <p><strong>投资收益：</strong>总投资 <span>2.5</span> 亿元。项目建成达产后，年可实现销售收入 <span>3.8</span> 亿元，实现利税  <span>5700</span> 万元，其中利润 <span>4000</span> 万元。</p>
+                            <p><strong>合作方式：</strong>独资、合资、合作。</p>
+                        </div>
+                    </div>
+                    <span class="back-menu"><span>&lt;</span> 返回目录</span>
+                    <span class="page-mark"><span>12 </span>/18</span>
+                </div>
+            </div>
+
+            <!-- 18 -->
+            <div class="item swiper-slide">
+                <img class="page3-1" src="img/page3-1.png" alt=""/>
+                <img class="page3-2" src="img/page3-2.png" alt=""/>
+                <div class="content">
+                    <p class="title">年产10万吨蔬菜精深加工项目</p>
+                    <div class="txt">
+                        <div>
+                            <p class="item-bg" style="text-indent: 2em">夏津县是京津冀优质蔬菜供应基地，主要蔬菜品种 <span>40</span> 多个，年总产 <span>64</span> 万吨，其中三品认证蔬菜面积 <span>1</span> 万亩，建有两处供港有机蔬菜基地。</p>
+                            <p><strong>项目规划：</strong>项目占地 <span>100</span> 亩，总建筑面积 <span>6.7</span> 万平方米，新上精深加工生产线 <span>5</span> 条，建设气调保鲜库、粗加工车间、脱水深加工车间等。项目建成后，年产各类蔬菜深加工产品 <span>10</span> 万吨。</p>
+                            <p><strong>项目进展：</strong>建设地点在夏津县经济开发区，园区规划完成，项目区已实现“九通一平”，配套基础设施完善。</p>
+                            <p><strong>投资收益：</strong>总投资 <span>2.8</span> 亿元。项目建成达产后，年可实现销售收入3.2亿元，实现利税4800万元，其中利润3300万元。</p>
+                            <p><strong>合作方式：</strong>独资、合资、合作。</p>
+                        </div>
+                    </div>
+                    <span class="back-menu"><span>&lt;</span> 返回目录</span>
+                    <span class="page-mark"><span>13</span>/18</span>
+                </div>
+            </div>
+
+            <!-- 12 -->
+            <div class="item swiper-slide">
+                <img class="page3-1" src="img/page3-1.png" alt=""/>
+                <img class="page3-2" src="img/page3-2.png" alt=""/>
+                <div class="content">
+                    <p class="title">古桑文化特色小镇项目</p>
+                    <div class="txt">
+                        <div>
+                            <p><strong>项目规划：</strong>项目以黄河故道古桑文化为主题，重点开展古桑群落保护开发、桑树优质品种培育、桑果规模化种植、生态休闲观光农业、桑文化弘扬五大功能区建设，突出古桑文化特色。种植区规划面积 <span>2</span> 万亩，总建筑面积 <span>13.5</span> 万平方米。</p>
+                            <p><strong>项目进展：</strong>建设地点在夏津县苏留庄镇，规划已完成，正在进行基础设施建设。</p>
+                            <p><strong>投资收益：</strong>项目总投资 <span>28</span> 亿元。建成运营后，年可实现销售收入 <span>35</span> 亿元，利税 <span>7</span> 亿元，利润 <span>5</span> 亿元。</p>
+                            <p><strong>合作方式：</strong>独资、合资、合作。</p>
+                        </div>
+                    </div>
+                    <span class="back-menu"><span>&lt;</span> 返回目录</span>
+                    <span class="page-mark"><span>14 </span>/18</span>
+                </div>
+            </div>
+
+            <!-- 13 -->
+            <div class="item swiper-slide">
+                <img class="page3-1" src="img/page3-1.png" alt=""/>
+                <img class="page3-2" src="img/page3-2.png" alt=""/>
+                <div class="content">
+                    <p class="title">左堤农业旅游综合体项目</p>
+                    <div class="txt">
+                        <div>
+                            <p><strong>项目规划：</strong>项目占地面积 <span>1000</span> 亩，其中蔬菜博览园项目占地 <span>300</span> 亩，依托左堤村蔬菜产业优势，拟兴建集科技农业、生态农业、观光农业、体验农业于一体的大型项目。休闲农庄项目占地 <span>200</span> 亩，分为农家乐餐饮区、院落式农庄酒店、农庄风情街、创意农业工坊等四大功能区域。乡土文化产业项目占地 <span>200</span> 亩，依托夏津丰富的民俗文化形式，打造独具特色的乡土文化。“生态夏津”旅游度假基地项目占地 <span>200</span> 亩，拟建立生态养生馆，森林氧吧等项目。</p>
+                            <p><strong>项目进展：</strong>建设地点在夏津黄河故道生态旅游区，规划已完成，正在进行基础设施建设。</p>
+                            <p><strong>投资收益：</strong>项目总投资 <span>20</span> 亿元。建成运营后，年可实现销售收入 <span>28</span> 亿元，利税 <span>28</span> 亿元，利润 <span>3.6</span> 亿元。</p>
+                            <p><strong>合作方式：</strong>独资、合资、合作。</p>
+                        </div>
+                    </div>
+                    <span class="back-menu"><span>&lt;</span> 返回目录</span>
+                    <span class="page-mark"><span>15 </span>/18</span>
+                </div>
+            </div>
+
+            <!-- 14 -->
+            <div class="item swiper-slide">
+                <img class="page3-1" src="img/page3-1.png" alt=""/>
+                <img class="page3-2" src="img/page3-2.png" alt=""/>
+                <div class="content">
+                    <p class="title">森林游乐园项目</p>
+                    <div class="txt">
+                        <div>
+                            <p><strong>项目规划：</strong>围绕森林公园资源特色和产业发展需求，建设森林探险、童话王国、惊险挑战、4D影院等创意园区，引进特色游乐设备，打造国内一流的大型森林主题乐园。</p>
+                            <p><strong>项目进展：</strong>建设地点在县黄河故道生态旅游区，当前基础设施完备，部分项目已建设。</p>
+                            <p><strong>投资收益：</strong>项目投资估算 <span>2</span> 亿元。建成运营后，年可实现旅游收入 <span>3.2</span> 亿元，利税 <span>4800</span> 万元，利润 <span>3600</span> 万元。</p>
+                            <p><strong>合作方式：</strong>独资、合资、合作。</p>
+                        </div>
+                    </div>
+                    <span class="back-menu"><span>&lt;</span> 返回目录</span>
+                    <span class="page-mark"><span>16 </span>/18</span>
+                </div>
+            </div>
+
+            <!-- 15 -->
+            <div class="item swiper-slide">
+                <img class="page3-1" src="img/page3-1.png" alt=""/>
+                <img class="page3-2" src="img/page3-2.png" alt=""/>
+                <div class="content">
+                    <p class="title">桑禅乡舍项目</p>
+                    <div class="txt">
+                        <div>
+                            <p><strong>项目规划：</strong>依托旅游区内古树群落构建的负氧旅游区环境及乡野林果资源的食疗养生价值，主打“森林遗产健康度假”特色品牌，构建健康养生度假体系，形成与其他版块的差异互补，补全旅游区多元功能业态。主要建设：大云寺禅修养生庄园、观林乡居、香雪梨园等内容，塑造静养禅修文化价值、古树森林健康价值和农耕文化遗产价值的度假化利用示范区。</p>
+                            <p><strong>项目进展：</strong>建设地点在县黄河故道生态旅游区，当前项目规划已完成 。</p>
+                            <p><strong>投资收益：</strong>项目总投资 <span>8.2</span> 亿元。建成达产后，年可实现销售收入 <span>10</span> 亿元，利税 <span>2</span> 亿元，利润 <span>1.4</span> 亿元。</p>
+                            <p><strong>合作方式：</strong>独资、合资、合作。</p>
+                        </div>
+                    </div>
+                    <span class="back-menu"><span>&lt;</span> 返回目录</span>
+                    <span class="page-mark"><span>17 </span>/18</span>
+                </div>
+            </div>
+
+            <!-- 16 -->
+            <div class="item swiper-slide">
+                <img class="page3-1" src="img/page3-1.png" alt=""/>
+                <img class="page3-2" src="img/page3-2.png" alt=""/>
+                <div class="content">
+                    <p class="title">黄河农桑文化遗产公园项目</p>
+                    <div class="txt">
+                        <div>
+                            <p><strong>项目规划：</strong>梳理农桑千年文化体系，结合科技体验、观光形式，主要建设活态博物馆、农桑遗产院落、农创公社、桑椹酒庄、桑榆乡居等8大板块，总建筑面积 <span>20</span> 万平方米，着力打造“农桑文化遗产活化核心”、“全球重要农业文化遗产开发示范中心”。</p>
+                            <p><strong>项目进展：</strong>建设地点在县黄河故道生态旅游区，当前规划设计已完成。</p>
+                            <p><strong>投资收益：</strong>项目总投资 <span>5.5</span> 亿元。建成运营后，年可实现销售收入  <span>8</span> 亿元，利税 <span>1.5</span> 亿元，利润 <span>0.95</span> 亿元。</p>
+                            <p><strong>合作方式：</strong>独资、合资、合作。</p>
+                        </div>
+                    </div>
+                    <span class="back-menu"><span>&lt;</span> 返回目录</span>
+                    <span class="page-mark"><span>18 </span>/18</span>
+                </div>
+            </div>
+
+            <!-- end 结束 -->
+            <div id="end" class="swiper-slide">
+                <div class="txt">
+                    <p class="p1 animated" data-a="fadeInDown">只要您来夏津，一切皆有可能！</p>
+                    <p class="p2 animated" data-a="fadeInDown">只要您我携手，一切都将拥有！</p>
+                </div>
+                <img src="img/end-1.png" alt="" class="end-1 animated" data-a="spaceInLeft"/>
+                <img src="img/end-2.png" alt="" class="end-2 animated" data-a="spaceInRight"/>
+                <img src="img/end-3.png" alt="" class="end-3 animated" data-a="spaceInLeft"/>
+                <img src="img/end-4.png" class="end-4 animated" data-a="spaceInLeft"/>
+                <img src="img/end-5.png" alt="" class="end-5 animated" data-a="spaceInRight"/>
+                <img src="img/end-6.png" alt="" class="end-6 animated" data-a="spaceInLeft"/>
+
+                <img class="qr animated" data-a="puffIn" src="img/qr.png" alt=""/>
+                <div class="end-foot">
+                    <p class="p1 animated" data-a="fadeInUp">招商服务热线：<a href="tel:0534-3888188">0534-3888188</a></p>
+                    <p class="p2 animated" data-a="fadeInUp">官方网站地址：<a href="http://www.xiajin.gov.cn">http://www.xiajin.gov.cn</a></p>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+    <img class="music musicAnima okPlay" src="http://sd-gold.oss-cn-beijing.aliyuncs.com/web/mmm.png" srcBol="true" />
+    <audio id="bgm1" class="bgm" src="src/mm.mp3" loop="loop" autoplay=""></audio>
+    <!--下一页-->
+    <img class="prevP" src="img/prevP.png"/>
+</div>
+</body>
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript" src="js/touch.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript" src="js/loading.js"></script>
+<script type="text/javascript" src="js/data.js"></script>
+<script type="text/javascript" src="js/main.js?v=1.6"></script>
+<!--<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>-->
+</html>

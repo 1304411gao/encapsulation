@@ -1,0 +1,586 @@
+//绝对定位
+@mixin pos($t,$l){
+    position: absolute;
+    top: $t;
+    left: $l;
+}
+@mixin posb($t,$l){
+    position: absolute;
+    bottom: $t;
+    left: $l;
+}
+@mixin tsn($time: .3s){
+    transition: $time;
+    -webkit-transition: $time;
+    -moz-transition: $time;
+}
+@mixin tsm($content){
+    transform: $content;
+    -webkit-transform: $content;
+    -moz-transform: $content;
+}
+@mixin borderR($deg:5px){
+    border-radius: $deg;
+    -webkit-border-radius: $deg;
+    -moz-border-radius: $deg;
+}
+@mixin boxSizing(){
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+@mixin defaultBg(){
+    background-image: url(../img/bg.jpg);
+    background-position: center center;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+@mixin md($time){
+    animation-delay: $time;
+    -webkit-animation-delay: $time;
+    -moz-animation-delay: $time;
+}
+@mixin absoluteCenter(){
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include tsm(translate(-50%, -50%));
+}
+%boxSizing{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+//rem的比例
+$pro: .44444444444/20;
+
+
+
+
+/*清除默认样式*/
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }
+body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; }
+h1, h2, h3, h4, h5, h6{ font-size:100%; }
+address, cite, dfn, em, var { font-style:normal; }
+code, kbd, pre, samp { font-family:couriernew, courier, monospace; }
+small{ font-size:12px; }
+ul, ol { list-style:none; }
+a { text-decoration:none; }
+a:hover { text-decoration:underline; }
+sup { vertical-align:text-top; }
+sub{ vertical-align:text-bottom; }
+legend { color:#000; }
+fieldset, img { border:0; }
+button, input, select, textarea { font-size:100%; }
+table { border-collapse:collapse; border-spacing:0; }
+body { /* IOS禁止微信调整字体大小 */
+    -webkit-text-size-adjust: 100% !important;
+}
+/* main*/
+html, body {
+    position: relative;
+    height: 100%;
+}
+body {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color:#000;
+    margin: 0;
+    padding: 0;
+
+}
+.center{
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+}
+#wrap{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-align: center;
+}
+#loading{
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    background-color: #1B1D1C;
+    
+    > img{
+        width: 60%;
+        @include absoluteCenter;
+    }
+}
+
+.swiper-container{
+    width: 100%;
+    height: 100%;
+}
+.swiper-wrapper{
+    //transition-timing-function: ease, step-start, cubic-bezier(0.1, 0.7, 1.0, 0.1);
+}
+.swiper-container .swiper-slide{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+
+/* 第一页 封面*/
+#page1{
+
+    background-color: #e5faff;
+
+    // 标题1
+    .page1-title1{
+        @include pos(135rem*$pro, 105rem*$pro);
+        width: 364rem*$pro;
+    }
+    // 标题2
+    .page1-title2{
+        @include pos(250rem*$pro, 271rem*$pro);
+        width: 385rem*$pro;
+        @include md(.3s);
+    }
+
+    // 左三角上
+    .page1-1{
+        @include pos(365rem*$pro, 30rem*$pro);
+        width: 577rem*$pro;
+        @include md(.9s);
+    }
+
+    // 左三角下
+    .page1-3{
+        @include pos(830rem*$pro, 133rem*$pro);
+        width: 123rem*$pro;
+        z-index: 2;
+        @include md(1.3s);
+    }
+
+    // 右三角
+    .page1-2{
+        @include pos(457rem*$pro, 283rem*$pro);
+        width: 416rem*$pro;
+        @include md(.9s);
+    }
+
+    .page1-4{
+        @include pos(415rem*$pro, 249rem*$pro);
+        width: 432rem*$pro;
+        @include md(.7s);
+    }
+    // 中部信息
+    .page1-center{
+        font-size: 32rem*$pro;
+        color: #333333;
+        position: absolute;
+        top: 364rem*$pro;
+        right: 60rem*$pro;
+    }
+    
+    // 底部信息
+    .page1-foot{
+        width: 100%;
+        text-align: center;
+        color: #333333;
+        font-size: 26rem*$pro;
+        position: absolute;
+        bottom: 60rem*$pro;
+        left: 0;
+
+        > .p1{
+            @include md(1.9s);
+        }
+        > .p2{
+            @include md(2.2s);
+        }
+    }
+}
+
+/* 第二页 目录 */
+#page2{
+    @include defaultBg;
+
+    /* 上三角 */
+    .page2-1{
+        @include pos(-1px, 0);
+        width: 80rem*$pro;
+        @include tsm(translateX(700rem*$pro));
+        @include tsn(3s);
+
+    }
+    .page2-1-m{
+        @include tsm(translateX(0));
+    }
+
+    /* 右三角 */
+    .page2-2{
+        position: absolute;
+        bottom: 60rem*$pro;
+        right: 0;
+        width: 197rem*$pro;
+        @include tsm(translateY(-1000rem*$pro));
+        @include tsn(3s);
+    }
+
+    .page2-2-m{
+        @include tsm(translateY(0));
+    }
+
+    /* 目录中文字 */
+    .page2-3{
+        @include pos(92rem*$pro, 309rem*$pro);
+        width: 96rem*$pro;
+        @include md(.3s);
+    }
+    /* 目录英文字 */
+    .page2-4{
+        @include pos(162rem*$pro, 288rem*$pro);
+        width: 143rem*$pro;
+        @include md(.6s);
+    }
+
+    /* 目录容器 */
+    .menu-box{
+        width: 550rem*$pro;
+        height: 69%;
+        overflow: auto;
+        background-color: rgba(#fff, 1);
+        border: 1px solid #8dc0ea;
+        position: absolute;
+        left: 130rem*$pro;
+        top: 242rem*$pro;
+        @include md(.5s);
+        
+        > ul{
+            width: 100%;
+            padding: 30rem*$pro 0;
+            display: none;
+
+            > li{
+                padding: 30rem*$pro 20rem*$pro;
+                position: relative;
+                @include md(2s);
+                > p{
+                    font-size: 28rem*$pro;
+                    color: #4c4c4c;
+                    text-align: left;
+                    line-height: 1.4em;
+                    padding-right: 50rem*$pro;
+                }
+                > span{
+                    position: absolute;
+                    right: 30rem*$pro;
+                    top: 50%;
+                    @include tsm(translateY(-50%));
+                    font-size: 28rem*$pro;
+                    color: #4c4c4c;
+
+                }
+            }
+            $jgTime: .4s;
+            $csTime: .15s;
+            > li:nth-child(1){
+                @include md($csTime+$jgTime*1);
+            }
+            > li:nth-child(2){
+                @include md($csTime+$jgTime*2);
+            }
+            > li:nth-child(3){
+                @include md($csTime+$jgTime*3);
+            }
+            > li:nth-child(4){
+                @include md($csTime+$jgTime*4);
+            }
+            > li:nth-child(5){
+                @include md($csTime+$jgTime*5);
+            }
+            > li:nth-child(6){
+                @include md($csTime+$jgTime*6);
+            }
+            > li:nth-child(7){
+                @include md($csTime+$jgTime*7);
+            }
+            > li:nth-child(8){
+                @include md($csTime+$jgTime*8);
+            }
+
+        }
+
+        > .box1{
+            display: block;
+        }
+    }
+    .tab{
+        min-height: 100px;
+        @include boxSizing;
+        width: 72rem*$pro;
+        text-align: center;
+        font-size: 30rem*$pro;
+        color: #0d7ac0;
+        font-weight: bold;
+        -webkit-background-size: 100% 100%;
+        background-size: 100% 100%;
+    }
+    .tab1{
+        @include pos(242rem*$pro, 63rem*$pro);
+        height: 196rem*$pro;
+        background-image: url(../img/page2-tab1.png);
+        @include md(.7s);
+
+        &.active{
+            background-image: url(../img/page2-tab1a.png);
+        }
+
+    }
+    .tab2{
+        @include pos(425rem*$pro, 63rem*$pro);
+        background-image: url(../img/page2-tab2.png);
+        height: 340rem*$pro;
+        @include md(1s);
+        &.active{
+            background-image: url(../img/page2-tab2a.png);
+        }
+    }
+    .tab3{
+        @include pos(733rem*$pro, 63rem*$pro);
+        background-image: url(../img/page2-tab3.png);
+        height: 235rem*$pro;
+        @include md(1.3s);
+        &.active{
+            background-image: url(../img/page2-tab3a.png);
+        }
+    }
+}
+
+
+
+.item{
+    @include defaultBg;
+
+
+    .page3-1{
+        @include pos(98rem*$pro, 0);
+        width: 62rem*$pro;
+    }
+    .page3-2{
+        position: absolute;
+        right: 30rem*$pro;
+        bottom: 30rem*$pro;
+        width: 300rem*$pro;
+        animation: music 9s linear infinite;
+    }
+    
+    > .content{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 3;
+
+        > .title{
+            padding-left: 80rem*$pro;
+            text-align: left;
+            font-size: 40rem*$pro;
+            color: #333333;
+            position: absolute;
+            left: 0;
+            top: 128rem*$pro;
+            @include tsm(translateY(-50%));
+            @include md(.6s);
+        }
+        > .txt{
+            @include pos(20.5%, 8.5%);
+            width: 83%;
+            height: 53%;
+            text-align: left;
+            font-size: 26rem*$pro;
+            color: #747474;
+            line-height: 1.75em;
+            word-break: break-all;
+
+            span{
+                color: #ff3838;
+            }
+
+            $jgTime: .4s;
+            $csTime: 1s;
+            p:nth-child(1){
+                @include md($csTime+$jgTime*1);
+            }
+            p:nth-child(2){
+                @include md($csTime+$jgTime*2);
+            }
+            p:nth-child(3){
+                @include md($csTime+$jgTime*3);
+            }
+            p:nth-child(4){
+                @include md($csTime+$jgTime*4);
+            }
+            p:nth-child(5){
+                @include md($csTime+$jgTime*5);
+            }
+        }
+        strong{
+            color: #595959;
+        }
+    }
+
+    .back-menu{
+        font-weight: bold;
+        position: absolute;
+        color: #0d7ac0;
+        font-size: 28rem*$pro;
+        bottom: 30rem*$pro;
+        left: 20rem*$pro;
+        @include md(.9s);
+
+        > span{
+            position: relative;
+            top: -1px;
+        }
+    }
+    .page-mark{
+
+        font-size: 24rem*$pro;
+        color: #333333;
+        position: absolute;
+        bottom: 10rem*$pro;
+        right: 10rem*$pro;
+        @include md(.9s);
+
+        > span{
+            color: #ff3838;
+            font-weight: bold;
+        }
+    }
+}
+
+#end{
+    @include defaultBg;
+    
+    > .txt{
+        width: 100%;
+        @include pos(120rem*$pro, 0);
+        text-align: right;
+        font-size: 34rem*$pro;
+        color: #333333;
+        line-height: 1.7em;
+        
+        > p{
+            padding-right: 45rem*$pro;
+        }
+
+        > .p1{
+            @include md(.1s);
+        }
+        > .p2{
+            @include md(.4s);
+        }
+    }
+
+    .end-1{
+        width: 117rem*$pro;
+        @include pos(288rem*$pro, 61rem*$pro);
+        @include md(.5s);
+    }
+    .end-2{
+        width: 172rem*$pro;
+        @include pos(518rem*$pro,467rem*$pro);
+        @include md(.6s);
+    }
+    .end-3{
+        width: 185rem*$pro;
+        @include pos(578rem*$pro,230rem*$pro);
+        @include md(.7s);
+    }
+    .end-4{
+        width: 402rem*$pro;
+        @include pos(290rem*$pro,260rem*$pro);
+        @include md(.7s);
+    }
+    .end-5{
+        width: 187rem*$pro;
+        @include pos(348rem*$pro,79rem*$pro);
+        @include md(.6s);
+    }
+    .end-6{
+        width: 106rem*$pro;
+        @include pos(293rem*$pro,349rem*$pro);
+        @include md(.8s);
+    }
+
+    .qr{
+        position: absolute;
+        width: 190rem*$pro;
+        top: 785rem*$pro;
+        left: 265rem*$pro;
+        @include md(1.4s);
+    }
+    .end-foot{
+        color: #333333;
+        font-size: 24rem*$pro;
+        position: absolute;
+        left: 170rem*$pro;
+        bottom: 20rem*$pro;
+        line-height: 2em;
+        text-align: left;
+
+        a{
+            color: #333;
+        }
+
+        .p1{
+            @include md(1.7s);
+        }
+        .p2{
+            @include md(2s);
+        }
+    }
+}
+
+.prevP{
+    display: none;
+    position: absolute;
+    bottom: .25rem;
+    width: 1rem;
+    z-index: 99;
+    left: 50%;
+    margin-left: -.5rem;
+    animation: prevP 1.3s ease-in infinite;
+    -webkit-animation: prevP 1.3s ease-in infinite;
+}
+
+.animated{
+    opacity: 0;
+
+}
+
+
+.music{
+    display: none;
+    position: absolute;
+    z-index: 99;
+    top: .4rem;
+    right: .4rem;
+    width: 25px;
+    height: 25px;
+}
+.musicAnima{
+    transform-origin: center;
+    -webkt-transform-origin: center;
+    animation: music 1.5s linear infinite;
+    -webkit-animation: music 1.5s linear infinite;
+}
+.zhuan{
+    opacity: 0;
+    transform-origin: center;
+    -webkt-transform-origin: center;
+    animation: music 4s linear infinite;
+    -webkit-animation: music 4s linear infinite;
+}
