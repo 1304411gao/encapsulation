@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html, body{
+            height: 100%;
+        }
+        .bg-video{
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 9;
+        }
+        .main{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+
+        }
+        .white-title{
+            font-size: 110px;
+            font-weight: bolder;
+            color: #ffffff;
+            font-family: "Monaco";
+            line-height: 1em;
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <video class="bg-video" src="src/MOSHED-2018-5-8-13-21-30.webm" autoplay="autoplay" loop></video>
+        <div class="main">
+            <div class="white-title">
+                trun()
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

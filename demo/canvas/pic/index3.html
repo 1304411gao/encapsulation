@@ -12,7 +12,6 @@
             padding: 0;
         }
         canvas{
-            /*border: 1px solid pink;*/
             margin: 100px auto;
             display: block;
         }
@@ -34,13 +33,7 @@
         });
         
         function init(_imgs) {
-            let imgs = [];
-            // todo 这里排序不对 先写死
-            // for(let n in _imgs){
-            //     imgs.push(_imgs[n]);
-            //     console.log("?" + n);
-            // }
-            imgs = [_imgs.i1, _imgs.i2, _imgs.i3];
+            let imgs = [_imgs.i1, _imgs.i2, _imgs.i3];
             loadFn({
                 loadImg: {
                     i1: "img/11.jpg",
@@ -51,13 +44,7 @@
             });
 
             function main (_mImgs){
-                let mImgs = [];
-                // todo 这里排序不对 先写死
-                // for(let m in _mImgs){
-                //     mImgs.push(_mImgs[m]);
-                //     console.log(m)
-                // }
-                mImgs = [_mImgs.i1, _mImgs.i2, _mImgs.i3];
+                let mImgs = [_mImgs.i1, _mImgs.i2, _mImgs.i3];
                 const canvas = document.getElementById("myCanvas");
                 canvas.width = 1920 / 3;
                 canvas.height = 1080 / 3;
